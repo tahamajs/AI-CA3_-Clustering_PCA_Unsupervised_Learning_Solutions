@@ -16,29 +16,35 @@ The dataset consists of 210 flower images with corresponding class labels. Image
 ## Methodology
 
 ### 1. Feature Extraction
+
 - **Model**: VGG16 (pre-trained on ImageNet)
 - **Process**: Remove fully connected layers, extract features from last convolutional layer
 - **Output**: 25,088-dimensional feature vectors per image
 
 ### 2. Dimensionality Reduction
+
 - **Technique**: Principal Component Analysis (PCA)
 - **Reduction**: From 25,088D to 2D for visualization and clustering
 
 ### 3. Clustering Algorithms
+
 - **K-Means**: Partition-based clustering with k=10 clusters
 - **DBSCAN**: Density-based clustering with tuned eps and min_samples parameters
 
 ### 4. Evaluation Metrics
+
 - **Homogeneity Score**: Measures class purity within clusters
 - **Silhouette Score**: Evaluates cluster separation and cohesion
 
 ### 5. Preprocessing Variations
+
 - Standard scaling, normalization, outlier removal with IsolationForest
 - Quantile transformation and other preprocessing techniques
 
 ## Installation
 
 ### Prerequisites
+
 - Python 3.8+
 - Jupyter Notebook
 - Required packages (install via pip):
@@ -48,6 +54,7 @@ pip install numpy pandas matplotlib seaborn scikit-learn keras tensorflow opencv
 ```
 
 ### Setup
+
 1. Clone or download the repository
 2. Navigate to the project directory
 3. Unzip the flower images:
@@ -71,17 +78,20 @@ pip install numpy pandas matplotlib seaborn scikit-learn keras tensorflow opencv
 ## Results
 
 ### K-Means Clustering (k=10)
+
 - Homogeneity Score: ~0.65
 - Silhouette Score: ~0.35
 - Optimal k determined through elbow method and score maximization
 
 ### DBSCAN Clustering
+
 - Best parameters: eps=300, min_samples=13
 - Silhouette Score: ~0.45
 - Homogeneity Score: ~0.55
 - Handles noise and arbitrary cluster shapes
 
 ### Preprocessing Impact
+
 - StandardScaler improves clustering metrics by ~10-15%
 - IsolationForest outlier removal enhances cluster quality
 - Quantile transformation provides robust normalization
